@@ -46,7 +46,7 @@ class Property(models.Model):
     room = models.IntegerField()
     rate = models.IntegerField()
     adress = models.TextField()
-    detail = RichTextUploadingField()
+    detail = RichTextUploadingField(blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
     slug = models.SlugField()
     create_at = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,48 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{setting.company}} {% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+        <!-- BREADCRUMBS AREA START -->
+        <div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs">
+                            <h2 class="breadcrumbs-title">iletisim</h2>
+                            <ul class="breadcrumbs-list">
+                                <li><a href="/">Anasayfa</a></li>
+                                <li>iletisim</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BREADCRUMBS AREA END -->
+
+  
+        
+  <!-- Start page content -->
+        <section id="page-content" class="page-wrapper">
+            
+            <!-- ABOUT SHELTEK AREA START -->
+            <div class="about-sheltek-area ptb-115">
+                <div class="container">
+                    <div class="row">
+                  
+                     {{ setting.contact | safe }}
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- ABOUT SHELTEK AREA END -->
+         
+
+{% endblock %}
+
+                                          

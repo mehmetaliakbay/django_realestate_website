@@ -1,6 +1,7 @@
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
+
 
 class Setting(models.Model):
     STATUS = (
@@ -19,13 +20,14 @@ class Setting(models.Model):
     smtpmail = models.CharField(blank=True, max_length=50)
     smtppassword = models.CharField(blank=True, max_length=100)
     smtpport = models.CharField(blank=True, max_length=10)
-    icon = models.ImageField(blank=True, upload_to='assets/images/', max_length=255)
+    icon = models.ImageField(
+        blank=True, upload_to='assets/images/', max_length=255)
     facebook = models.CharField(blank=True, max_length=50)
     twitter = models.CharField(blank=True, max_length=50)
     instagram = models.CharField(blank=True, max_length=50)
-    aboutus = models.TextField(blank=True)
-    contact = models.TextField(blank=True)
-    references = models.TextField(blank=True)
+    aboutus = RichTextUploadingField(blank=True)
+    contact = RichTextUploadingField(blank=True)
+    references = RichTextUploadingField(blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
