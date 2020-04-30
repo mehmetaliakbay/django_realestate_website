@@ -48,6 +48,7 @@ class Property(models.Model):
     adress = models.TextField()
     detail = RichTextUploadingField(blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
+    # TODO add function slug for auto generate unique field
     slug = models.SlugField()
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
