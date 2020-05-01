@@ -57,8 +57,29 @@
                                         <img src="{% static 'images/logo/logo.png'%} " alt="">
                                     </a>
                                 </div>
+
+
                                 <nav id="primary-menu">
                                     <ul class="main-menu text-center">
+                                    
+                                {% load mptt_tags %}
+                                     <li><a href="#">Pages's</a>
+                                     <ul class="drop-menu menu-right">
+                                        {% recursetree category %}
+                                            <li class="dropdown drop">
+                                            <a href="/category/{{ node.slug }}"> {{ node.title }}</a>
+                                              
+                                                {% if not node.is_leaf_node %}
+                                                        <ul>
+                                                        {{ children }}
+                                                    </ul>
+                                                {% endif %}
+                                            </li>
+                                        {% endrecursetree %}
+                                        </ul>
+                                    </li>
+
+
                                         <li><a href="/">Anasayfa</a></li>
                                         
                                         <li><a href="/hakkimizda">Hakkımızda</a></li>
