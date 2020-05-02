@@ -1,0 +1,99 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{categorydata.title}}  {% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+        <!-- BREADCRUMBS AREA START -->
+        <div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="breadcrumbs">
+                            <h2 class="breadcrumbs-title">{{categorydata.title}} </h2>
+                            <ul class="breadcrumbs-list">
+                                <li><a href="/">Anasayfa</a></li>
+                                <li>{{categorydata.title}} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BREADCRUMBS AREA END -->
+
+        
+  <!-- Start page content -->
+        <section id="page-content" class="page-wrapper">
+            
+            <!-- ABOUT SHELTEK AREA START -->
+            <div class="about-sheltek-area ptb-115">
+                <div class="container">
+                    <div class="row">
+                  
+
+                    {%  for rs in properties %}
+                   
+                   <!-- flat-item -->
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="flat-item">
+                                    <div class="flat-item-image">
+                                        <span class="for-sale">For Sale</span>
+                                        <a href="/property/{{ rs.id }}/{{rs.slug}}"><img src="{{ rs.image.url }}" alt=""></a>
+                                        <div class="flat-link">
+                                            <a href="/property/{{ rs.id }}/{{rs.slug}}">More Details</a>
+                                        </div>
+                                        <ul class="flat-desc">
+                                            <li>
+                                                <img src="images/icons/4.png" alt="">
+                                                <span>450 sqft</span>
+                                            </li>
+                                            <li>
+                                                <img src="images/icons/5.png" alt="">
+                                                <span>5</span>
+                                            </li>
+                                            <li>
+                                                <img src="images/icons/6.png" alt="">
+                                                <span>3</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flat-item-info">
+                                        <div class="flat-title-price">
+                                            <h5><a href="/property/{{ rs.id }}/{{rs.slug}}">{{ rs.title }}</a></h5>
+                                            <span class="price">${{ rs.price }}</span>
+                                        </div>
+                                        <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                                        {% comment %} {{ rs.adress }} {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                         
+                            <!-- pagination-area -->
+                            <div class="col-xs-12">
+                                <div class="pagination-area mb-60">
+                                    <ul class="pagination-list text-center">
+                                        <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                   
+                    </div>
+                </div>
+            </div>
+            <!-- ABOUT SHELTEK AREA END -->
+         
+
+{% endblock %}
+
+                                          

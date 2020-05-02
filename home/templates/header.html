@@ -61,13 +61,19 @@
 
                                 <nav id="primary-menu">
                                     <ul class="main-menu text-center">
-                                    
+                                    {% comment %} TODO - Sidebar kismi yapilacak burasi 
+                                    calisiyor fakat diger sayfalarda cagirinca hata aliyor
+                                    viewslerden sorun halledilebilir {% endcomment %}
+
+
+                                                           
                                 {% load mptt_tags %}
                                      <li><a href="#">Pages's</a>
                                      <ul class="drop-menu menu-right">
+
                                         {% recursetree category %}
                                             <li class="dropdown drop">
-                                            <a href="/category/{{ node.slug }}"> {{ node.title }}</a>
+                                            <a href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>
                                               
                                                 {% if not node.is_leaf_node %}
                                                         <ul>
@@ -77,7 +83,7 @@
                                             </li>
                                         {% endrecursetree %}
                                         </ul>
-                                    </li>
+                                    </li> 
 
 
                                         <li><a href="/">Anasayfa</a></li>

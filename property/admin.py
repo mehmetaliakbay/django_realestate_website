@@ -19,8 +19,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'price_rent',
-                    'price_sell',  'image_tag', 'status']
+    list_display = ['title', 'category', 
+                    'price',  'image_tag', 'status']
     readonly_fields = ('image_tag',)
     list_filter = ['status', 'category']
     inlines = [PropertyImageInline]
