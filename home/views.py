@@ -10,11 +10,16 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Property.objects.all()[:4]
     category = Category.objects.all()
-
+    dayproperties= Property.objects.all()[:4]
+    lastproperties = Property.objects.all().order_by('-id')[:4]
+    randomproperties = Property.objects.all().order_by('?')[:9]
     context = {'setting': setting,
                 'category': category,
                 'page':'home',
-                'sliderdata':sliderdata}
+                'sliderdata':sliderdata,
+                'randomproperties':randomproperties,
+                'lastproperties':lastproperties,
+                'dayproperties':dayproperties}
     return render(request, 'index.html', context)
 
 
