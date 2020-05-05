@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+from django.urls import path,include
 from django.conf.urls.static import static
 from home import views
 
@@ -30,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_properties, name='category_properties'),
+    path('property/<int:id>/<slug:slug>/', views.property_detail, name='property_detail'),
 ]
 
 if settings.DEBUG:  # new

@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from property.models import Property
-from property.models import Category
+from property.models import Category,Images
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
@@ -25,13 +25,15 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    context = {'setting': setting,'category':category}
     return render(request, 'hakkimizda.html', context)
 
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    context = {'setting': setting,'category':category}
     return render(request, 'referanslar.html', context)
 
 def iletisim(request):
@@ -51,7 +53,8 @@ def iletisim(request):
        
     setting = Setting.objects.get(pk=1)
     form = ContactFormu()
-    context={'setting':setting, 'form': form}
+    category = Category.objects.all()
+    context={'setting':setting, 'form': form,'category':category}
     return render(request, 'iletisim.html', context)
 
 
@@ -63,3 +66,13 @@ def category_properties(request,id,slug):
                 'category': category,
                 'categorydata': categorydata}
     return render(request,'properties.html',context)
+
+def property_detail(request,id,slug):
+    category = Category.objects.all()
+    property = Property.objects.get(pk=id)
+    images = Images.objects.filter(property_id=id)
+    context = { 'property':property,
+                'category': category,
+                'images':images
+                }
+    return render(request,'property_detail.html',context)
