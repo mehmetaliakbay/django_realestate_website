@@ -118,36 +118,21 @@
                             <!-- pro-details-feedback -->
                             <div class="pro-details-feedback mb-40">
                                 <h5>3 Feedback</h5>
+
+                                {% for rs in comments%}
                                 <!-- media -->
                                 <div class="media">
                                     <a class="media-left" href="#">
                                         <img src="images/avatar/1.jpg" alt="">
                                     </a>
                                     <div class="media-body">
-                                        <h6 class="media-heading"><a href="#">David Backhum</a></h6>
-                                        <p><span>6 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
+                                        <h6 class="media-heading"><a href="#">{{ rs.user.first_name }}</a></h6>
+                                        <p><span> {{ rs.create_at }} 6 hour ago</span> {{ rs.comment }} </p>
                                     </div>
                                 </div>
-                                <!-- media -->
-                                <div class="media">
-                                    <a class="media-left" href="#">
-                                        <img src="images/avatar/2.jpg" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><a href="#">Saniya Mirza</a></h6>
-                                        <p><span>8 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
-                                    </div>
-                                </div>
-                                <!-- media -->
-                                <div class="media">
-                                    <a class="media-left" href="#">
-                                        <img src="images/avatar/3.jpg" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><a href="#">Lionel Messi</a></h6>
-                                        <p><span>10 hour ago</span>There are some business lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu tempor inc ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudt </p>
-                                    </div>
-                                </div>
+
+                                {% endfor %}
+
                             </div>
                             <!-- agent-review -->
                             <div class="pro-details-agent-review">
@@ -189,14 +174,27 @@
                                     <div class="col-md-7  col-sm-7 col-xs-12">
                                         <div class="leave-review">
                                             <h5>Leave a Review</h5>
-                                            <form action="#">
-                                                <input type="text" name="name" placeholder="Your name">
-                                                <input type="email" name="email" placeholder="Email here">
-                                                <textarea></textarea>
-                                                <button type="button" class="submit-btn-1">SUBMIT REVIEW</button>
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    <div class="alert alert-{{message.tags}}" role="alert">
+                                                        {{ message }}
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                            <form action="/property/addcomment/{{ property.id }}" method="post">
+                                                {% csrf_token %}
+                                                <input type="text" name="subject" placeholder="Your name">
+                                                <textarea name="comment" placeholder="Mesajinizi Giriniz"></textarea>
+                                                {% if user.id is not None %}
+                                                <button type="submit" class="submit-btn-1">SUBMIT REVIEW</button>
+                                                {% else %}
+                                               <h5> Yorum Eklemek Icin <a href="/login"> Login Olunuz</a> </h5>
+                                                {% endif %}
                                             </form>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

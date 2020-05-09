@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from property.models import Property
-from property.models import Category,Images
+from property.models import Category,Images,Property,Comment
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
@@ -71,8 +70,10 @@ def property_detail(request,id,slug):
     category = Category.objects.all()
     property = Property.objects.get(pk=id)
     images = Images.objects.filter(property_id=id)
+    comments = Comment.objects.filter(property_id = id, status = 'True')
     context = { 'property':property,
                 'category': category,
-                'images':images
+                'images':images,
+                'comments': comments,
                 }
     return render(request,'property_detail.html',context)
