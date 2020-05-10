@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from property.models import Category,Images,Property,Comment
 from home.models import Setting, ContactFormu, ContactFormMessage
+from home.forms import SearchForm
 
 
 def index(request):
@@ -77,3 +78,17 @@ def property_detail(request,id,slug):
                 'comments': comments,
                 }
     return render(request,'property_detail.html',context)
+
+def property_search(request):
+    if request.method == 'POST': # form post edildiyse
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            category = Category.objects.all()
+            query = form.cleaned_data['query'] #formdan bilgiyi al
+            properties = Property.objects.filter(title__icontains=query)
+            context = {
+                'properties': properties,
+                'category': category,
+            }
+            return render(request, 'properties_search.html', context)
+    return HttpResponseRedirect('/')

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c72512c3-3a8e-417f-9ede-d94c97c395bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/properties_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_realestate_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_realestate_project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +18,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZUbIY2C24BM5p0z3rCCps7igqL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -25,8 +29,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\django_realestate_website\home\templates" />
+      <recent name="C:\Django\django_realestate_website\home" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -42,13 +52,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="580" y="205" key="FileChooserDialogImpl" timestamp="1589032453448">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="580" y="205" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1589032453448" />
     <state x="483" y="13" key="SettingsEditor" timestamp="1584952684886">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="483" y="13" key="SettingsEditor/0.0.1600.900@0.0.1600.900" timestamp="1584952684886" />
-    <state x="501" y="274" key="com.intellij.ide.util.TipDialog" timestamp="1586882580740">
+    <state x="501" y="274" key="com.intellij.ide.util.TipDialog" timestamp="1589032424723">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="501" y="274" key="com.intellij.ide.util.TipDialog/0.0.1600.900@0.0.1600.900" timestamp="1586882580740" />
+    <state x="501" y="274" key="com.intellij.ide.util.TipDialog/0.0.1600.900@0.0.1600.900" timestamp="1589032424723" />
   </component>
 </project>

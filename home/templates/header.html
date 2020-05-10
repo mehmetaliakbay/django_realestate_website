@@ -34,16 +34,19 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="header-search clearfix">
-                                <form action="#">
+                                <form action="/search/" method="post">
+                                    {% csrf_token %}
                                     <button class="search-icon" type="submit">
                                         <img src="{% static 'images/icons/search.png'%} " alt="">
                                     </button>
-                                    <input type="text" placeholder="Search...">
+                                    <input name="query" type="text" placeholder="Search...">
                                 </form>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
