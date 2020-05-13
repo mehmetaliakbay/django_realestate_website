@@ -1,0 +1,83 @@
+{% extends "homebase.html" %}
+
+{% block title %} Kullanıcı Kayıt{% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs">
+                    <h2 class="breadcrumbs-title">Kullanici Kayit ol</h2>
+                    <ul class="breadcrumbs-list">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li>Register</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+
+
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+
+    <!-- LOGIN SECTION START -->
+    <div class="login-section pt-115 pb-70">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="new-customers mb-50">
+                        <form action="#" method="post">
+                            <h5 class="mb-50">REGISTER</h5>
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <div class="login-account p-30 box-shadow">
+
+                              {% csrf_token %}
+                             {% for field in form %}
+                                 <p>
+                                    {{ field.label_tag }}<br>
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                         <small style="color: grey">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                 </p>
+
+                             {% endfor %}
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <button class="submit-btn-1 mt-20" type="submit" value="register">Register
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- LOGIN SECTION END -->
+
+    {% endblock %}
