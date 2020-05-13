@@ -5,6 +5,7 @@ from mptt.models import MPTTModel
 from mptt.fields import TreeForeignKey
 from django.contrib.auth.models import User
 from django.forms import ModelForm, TextInput, Textarea
+from django.urls import reverse
 
 class Category(MPTTModel):
     STATUS = (
@@ -16,7 +17,7 @@ class Category(MPTTModel):
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True,upload_to='images/', max_length=255)
     status = models.CharField(max_length=10, choices=STATUS)
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
     parent = TreeForeignKey(
         'self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now_add=True)
@@ -41,6 +42,10 @@ class Category(MPTTModel):
     image_tag.short_description = 'Image'
 
 
+    def get_absolute_url(self):
+        return reverse('category_detail',kwargs={'slug': self.slug})
+
+
 class Property(models.Model):
     STATUS = (
         ('True', 'Evet'),
@@ -59,8 +64,7 @@ class Property(models.Model):
     adress = models.TextField()
     detail = RichTextUploadingField(blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
-    # TODO add function slug for auto generate unique field
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
@@ -72,6 +76,8 @@ class Property(models.Model):
 
     image_tag.short_description = 'Image'
 
+    def get_absolute_url(self):
+        return reverse('product_detail',kwargs={'slug': self.slug})
 
 class Images(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
