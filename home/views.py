@@ -4,6 +4,7 @@ from django.shortcuts import render
 from property.models import Category,Images,Property,Comment
 from home.models import Setting, ContactFormu, ContactFormMessage
 from home.forms import SearchForm
+from django.contrib.auth import logout, authenticate, login
 
 
 def index(request):
@@ -92,3 +93,24 @@ def property_search(request):
             }
             return render(request, 'properties_search.html', context)
     return HttpResponseRedirect('/')
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect('/')
+        else:
+            messages.warning(request, "Login Hatasi ! Kullanici Adi veya sifre yanlis")
+            return HttpResponseRedirect ('/login')
+
+    category = Category.objects.all()
+    context = { 'category': category,}
+    return render(request,'login.html',context)
