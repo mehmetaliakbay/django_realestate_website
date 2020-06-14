@@ -33,6 +33,7 @@ def addtocart(request, id):
                 data.myproperty_id = id
                 data.quantity = form.cleaned_data['quantity']
                 data.save()
+                request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
             messages.success(request, "Ev başarı ile sepete eklenmiştir. Teşekkür ederiz ")
             return HttpResponseRedirect(url)
     else:  # Ürün direk sepete ekle butonuna basıldıysa
@@ -46,6 +47,7 @@ def addtocart(request, id):
             data.myproperty_id = id
             data.quantity = 1
             data.save()     # veritabanina kaydet
+            request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
         messages.success(request, "Ev başarı ile sepete eklenmiştir. Teşekkür Ederiz ")
         return HttpResponseRedirect(url)
 
@@ -57,6 +59,7 @@ def shopcart(request):
     category = Category.objects.all()
     current_user = request.user
     shopcart = ShopCart.objects.filter(user_id=current_user.id)
+    request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
     total=0
     for rs in shopcart:
         total += rs.myproperty.price * rs.quantity
@@ -71,5 +74,7 @@ def shopcart(request):
 @login_required(login_url='/login')    # Check login
 def deletefromcart(request, id):
     ShopCart.objects.filter(id=id).delete()
-    messages.success(request, "Ev Siparişi Silinmiştir.")
+    current_user = request.user
+    request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
+    messages.success(request, "Ev Satin alma islemi Silinmiştir.")
     return HttpResponseRedirect("/shopcart")

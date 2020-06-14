@@ -20,6 +20,10 @@ class ShopCart(models.Model):
     def price(self):
         return self.myproperty.price
 
+    @property
+    def address(self):
+        return self.myproperty.address
+
 class ShopCartForm(ModelForm):
     class Meta:
         model = ShopCart

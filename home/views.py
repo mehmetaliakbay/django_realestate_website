@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+
+from order.models import ShopCart
 from property.models import Category,Images,Property,Comment
 from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 from home.forms import SearchForm
@@ -9,12 +11,14 @@ from home.forms import SearchForm, SignUpForm
 
 
 def index(request):
+    current_user = request.user
     setting = Setting.objects.get(pk=1)
     sliderdata = Property.objects.all()[:4]
     category = Category.objects.all()
     dayproperties= Property.objects.all()[:4]
     lastproperties = Property.objects.all().order_by('-id')[:4]
     randomproperties = Property.objects.all().order_by('?')[:9]
+    request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
     context = {'setting': setting,
                 'category': category,
                 'page':'home',
