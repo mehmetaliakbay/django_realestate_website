@@ -74,10 +74,13 @@ def property_detail(request,id,slug):
     property = Property.objects.get(pk=id)
     images = Images.objects.filter(property_id=id)
     comments = Comment.objects.filter(property_id = id, status = 'True')
+    lastproperties =  Property.objects.exclude(pk = id).order_by('-id')[:3]
+
     context = { 'property':property,
                 'category': category,
                 'images':images,
                 'comments': comments,
+                'lastproperties':lastproperties,
                 }
     return render(request,'property_detail.html',context)
 

@@ -1,37 +1,25 @@
- {% load  static  %}
-  
-        <!-- SLIDER SECTION START -->
-        <div class="slider-1 pos-relative slider-overlay">
-            <div class="bend niceties preview-1">
-           
-                <div id="ensign-nivoslider-3" class="slides">   
-                 {% for rs in sliderdata %}
-                    <img src="{{ rs.image.url }}" alt="" title="#slider-direction-{{ rs.id }}"  />
-                {% endfor %}
-                </div> 
-            
-                <!-- direction 1 -->
-               {% for rs in sliderdata %}
-                <div id="slider-direction-{{ rs.id }}" class="slider-direction">
-                  
-                    <div class="slider-content text-center">
-                        <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                            <h4 class="slider-1-title-1">Merhaba  <span>{{ rs.title }} Göz Atmak İster misin?</span></h4>
-                        </div>
-                        <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
-                            {% comment %} <h1 class="slider-1-title-2">{{ rs.title1 }}</h1> {% endcomment %}
-                        </div>
-                        <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">
-                            <p class="slider-1-desc"> {{ rs.description }} </p>
-                        </div>
-                        <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
-                            <a class="slider-button mt-40" href="/property/{{ rs.id }}/{{ rs.slug }}/">Göz At</a>
-                        </div>
-                    </div>
-                    
-                </div>
-                {% endfor %}
+{% load  static  %}
 
+<div class="fotorama" data-width="100%"
+     data-height="80%"
+     data-ratio="800/600"
+     data-fit="cover"
+     data-autoplay="true"
+data-nav="false">
+    {% for rs in sliderdata %}
+    <div data-img="https://s.fotorama.io/1.jpg">
+        <div class="slider-content text-center">
+            <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                <h4 class="slider-1-title-1">Merhaba <span>{{ rs.title }} Göz Atmak İster misin?</span></h4>
+            </div>
+            <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">
+                <p class="slider-1-desc"> {{ rs.description }} </p>
+            </div>
+            <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
+                <a class="slider-button mt-40" href="/property/{{ rs.id }}/{{ rs.slug }}/">Göz At</a>
             </div>
         </div>
-        <!-- SLIDER SECTION END -->
+    </div>
+    {% endfor %}
+
+</div>

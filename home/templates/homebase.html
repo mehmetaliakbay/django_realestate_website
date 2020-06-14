@@ -2,7 +2,7 @@
 <html class="no-js" lang="zxx">
 
 <head>
-{% load  static  %}
+    {% load static %}
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <meta name="description" content="{% block description %} Anasayfa aciklama kismi {% endblock  %}">
     <meta name="keywords" content="{% block keywords %} Anasayfa aciklama keywords {% endblock  %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- Favicon -->
+    <!-- Favicon -->
 
 
     <!-- All css files are included here. -->
@@ -31,6 +31,14 @@
     <!-- User style -->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
+<!--    Fotorama-->
+    <!-- jQuery 1.8 or later, 33 KB -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
     <!-- Modernizr JS -->
     <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
@@ -38,15 +46,14 @@
 </head>
 
 <body>
-    <!-- Body main wrapper start -->
-    <div class="wrapper">
-	
+<!-- Body main wrapper start -->
+<div class="wrapper">
 
-{% include 'header.html' %}
-{% block slider %}  {% endblock %}
-{% block content %} {% endblock %}
-{% include 'footer.html' %}
 
+    {% include 'header.html' %}
+    {% block slider %} {% endblock %}
+    {% block content %} {% endblock %}
+    {% include 'footer.html' %}
 
 
 </body>
