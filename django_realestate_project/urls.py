@@ -39,6 +39,7 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('order/', include('order.urls')),
     path('shopcart/', orderviews.shopcart, name="shopcart"),
+    path('faq/', views.faq, name="faq"),
 ]
 
 if settings.DEBUG:  # new

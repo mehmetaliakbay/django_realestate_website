@@ -1,0 +1,70 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{setting.company}} {% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs">
+                    <h2 class="breadcrumbs-title">Sıkça Sorulan Sorular</h2>
+                    <ul class="breadcrumbs-list">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li>Sıkça Sorulan Sorular</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+<!-- Start page content -->
+<div id="page-content" class="page-wrapper">
+
+    <!-- ELEMENTS AREA START -->
+    <div class="elements-area ptb-115">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="mb-50">SIKÇA SORULAN SORULAR</h3>
+                     {% for rs in faq %}
+                    <div id="accordion_{{ rs.ordernumber }}" class="accordion">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{rs.ordernumber}}">
+                                           {{ rs.question }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse{{ rs.ordernumber }}" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        {{ rs.answer }}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                    </div>
+                      {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ELEMENTS AREA END -->
+
+</div>
+<!-- End page content -->
+
+
+{% endblock %}
+
+                                          

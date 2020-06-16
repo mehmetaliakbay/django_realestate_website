@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from order.models import ShopCart
 from property.models import Category,Images,Property,Comment
-from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
 from home.forms import SearchForm
 from django.contrib.auth import logout, authenticate, login
 from home.forms import SearchForm, SignUpForm
@@ -146,3 +146,13 @@ def signup_view(request):
                 'form': form,
                 }
     return render(request,'signup.html',context)
+
+def faq(request):
+    category = Category.objects.all()
+    faq = FAQ.objects.all().order_by('ordernumber')
+    context = {
+        'category': category,
+        'faq': faq,
+    }
+
+    return render(request, 'faq.html', context)
