@@ -1,0 +1,101 @@
+{% extends "homebase.html" %}
+
+{% block title %}Order Form{% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs">
+                    <h2 class="breadcrumbs-title">Order Form</h2>
+                    <ul class="breadcrumbs-list">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li>Order Form</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+
+
+    <!-- CONTACT AREA START -->
+    <div class="contact-area pt-115 pb-115">
+        <div class="container">
+            <div class="row">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" roles="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <table class="table">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" roles="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <form class="wn__checkout__form" method="post">
+                        {% csrf_token %}
+
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <div class="find-home-item">
+                                <label>First Name <span>*</span></label>
+                                <input type="text" name="first_name" value="{{ user.first_name }}" style="background-color:white;
+              border: solid 1px #6E6E6E;
+              height: 30px;
+              font-size:18px;
+              vertical-align:9px;color:#000">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <div class="find-home-item">
+                                <label>Last Name <span>*</span></label>
+                                <input type="text" name="last_name" value="{{ user.last_name }}" style="background-color:white;
+              border: solid 1px #6E6E6E;
+              height: 30px;
+              font-size:18px;
+              vertical-align:9px;color:#000">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <div class="find-home-item">
+                                <label>Telephone Number <span>*</span></label>
+                                <input type="text" name="phone" value="{{ profile.phone }}" style="background-color:white;
+              border: solid 1px #6E6E6E;
+              height: 30px;
+              font-size:18px;
+              vertical-align:9px;color:#000">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">siparisi tamamla</button>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT AREA END -->
+
+</section>
+<!-- End page content -->
+
+
+{% endblock %}
+

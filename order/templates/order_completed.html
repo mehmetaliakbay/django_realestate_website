@@ -1,0 +1,52 @@
+{% extends "homebase.html" %}
+
+{% block title %}Order Form{% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs">
+                    <h2 class="breadcrumbs-title">Order Completed</h2>
+                    <ul class="breadcrumbs-list">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li>Order Completed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+
+
+    <!-- CONTACT AREA START -->
+    <div class="contact-area pt-115 pb-115">
+        <div class="container">
+            <div class="row">
+                <h2> Sevgili {{user.first_name}}<br>
+                    Evi satin alma isleminiz tamamlanmistir<br>
+                    Evi Satin Alma Kodu : {{ ordercode }}<br>
+                    İyi Günler Dileriz
+                </h2>
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT AREA END -->
+
+</section>
+<!-- End page content -->
+
+
+{% endblock %}
+

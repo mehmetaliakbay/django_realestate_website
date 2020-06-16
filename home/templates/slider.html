@@ -7,13 +7,13 @@
      data-autoplay="true"
 data-nav="false">
     {% for rs in sliderdata %}
-    <div data-img="https://s.fotorama.io/1.jpg">
+    <div data-img="{{ rs.image.url }}">
         <div class="slider-content text-center">
             <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                <h4 class="slider-1-title-1">Merhaba <span>{{ rs.title }} Göz Atmak İster misin?</span></h4>
+                <h4 class="slider-1-title-1" style="background-color:rgba(0, 0, 0, 0.6);display:inline;">Merhaba <span>{{ rs.title }} Göz Atmak İster misin?</span></h4>
             </div>
             <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">
-                <p class="slider-1-desc"> {{ rs.description }} </p>
+                <p class="slider-1-desc"  style="background-color:rgba(0, 0, 0, 0.6);display:inline;"> {{ rs.description }} </p>
             </div>
             <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
                 <a class="slider-button mt-40" href="/property/{{ rs.id }}/{{ rs.slug }}/">Göz At</a>
