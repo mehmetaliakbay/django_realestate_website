@@ -1,8 +1,9 @@
-from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.forms import ModelForm, TextInput, Textarea
 from django.contrib.auth.models import User
+from django.db import models
+from django.forms import ModelForm, TextInput, Textarea
 from django.utils.safestring import mark_safe
+
 
 class Setting(models.Model):
     STATUS = (
@@ -72,9 +73,11 @@ class ContactFormu (ModelForm):
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     phone = models.CharField(blank=True, max_length=20)
-    address = models.CharField(blank=True, max_length=150)
-    city = models.CharField(blank=True, max_length=20)
-    country = models.CharField(blank=True, max_length=20)
+    facebook = models.CharField(blank=True, max_length=20)
+    email = models.CharField(blank=True, max_length=20)
+    skype = models.CharField(blank=True, max_length=20)
+    contact_detail = models.CharField(blank=True, max_length=150)
+    biography = models.CharField(blank=True, max_length=150)
     image = models.ImageField(blank=True,upload_to='images/users/')
 
     def __str__(self):
@@ -94,7 +97,7 @@ class UserProfile(models.Model):
 class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['phone', 'address', 'city', 'country','image']
+        fields = ['phone', 'email', 'facebook', 'skype','contact_detail','biography','image']
 
 
 class FAQ(models.Model):

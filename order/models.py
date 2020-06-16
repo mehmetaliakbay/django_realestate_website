@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ModelForm
+
 from property.models import Property as myProperty, Property
 
 

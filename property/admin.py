@@ -1,7 +1,7 @@
 from django.contrib import admin
-from property.models import Category, Property, Images,Comment
-from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
+from mptt.admin import DraggableMPTTAdmin
 
+from property.models import Category, Property, Images, Comment
 
 
 class PropertyImageInline(admin.TabularInline):

@@ -1,6 +1,7 @@
 from django.contrib import admin
-from home.models import Setting, ContactFormMessage, UserProfile, FAQ
-from home.models import Setting, ContactFormMessage 
+
+from home.models import Setting, ContactFormMessage
+from home.models import UserProfile, FAQ
 
 
 class ContactFormMessageAdmin(admin.ModelAdmin):
@@ -8,7 +9,7 @@ class ContactFormMessageAdmin(admin.ModelAdmin):
     list_filter = ['status']
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user_name','phone','address','city','country', 'image_tag']
+    list_display = ['user_name','phone','email','skype','contact_detail', 'image_tag']
 
 
 class FAQAdmin(admin.ModelAdmin):
@@ -18,5 +19,5 @@ class FAQAdmin(admin.ModelAdmin):
 
 admin.site.register(ContactFormMessage, ContactFormMessageAdmin)
 admin.site.register(Setting)
-admin.site.register(UserProfile,UserProfileAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(FAQ,FAQAdmin)

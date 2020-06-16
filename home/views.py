@@ -1,13 +1,12 @@
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import logout, authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from order.models import ShopCart
-from property.models import Category,Images,Property,Comment
-from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
-from home.forms import SearchForm
-from django.contrib.auth import logout, authenticate, login
 from home.forms import SearchForm, SignUpForm
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
+from order.models import ShopCart
+from property.models import Category, Images, Property, Comment
 
 
 def index(request):
@@ -78,7 +77,7 @@ def property_detail(request,id,slug):
     property = Property.objects.get(pk=id)
     images = Images.objects.filter(property_id=id)
     comments = Comment.objects.filter(property_id = id, status = 'True')
-    lastproperties =  Property.objects.exclude(pk = id).order_by('-id')[:3]
+    lastproperties = Property.objects.exclude(pk = id).order_by('-id')[:3]
 
     context = { 'property':property,
                 'category': category,
@@ -137,6 +136,12 @@ def signup_view(request):
             data = UserProfile()
             data.user_id = current_user.id
             data.image = "images/users/user.png"
+            data.email = form.cleaned_data.get('email')
+            data.phone = form.cleaned_data.get('phone')
+            data.biography = form.cleaned_data.get('biography')
+            data.facebook = form.cleaned_data.get('facebook')
+            data.contact_detail = form.cleaned_data.get('contact_detail')
+            data.skype = form.cleaned_data.get('skype')
             data.save()
             return HttpResponseRedirect ('/')
 
@@ -156,3 +161,17 @@ def faq(request):
     }
 
     return render(request, 'faq.html', context)
+
+
+def seller(request,id,slug):
+    category = Category.objects.all()
+    property = Property.objects.get(pk=id)
+    seller_user = property.user_id
+    profile = UserProfile.objects.get(user_id=seller_user)
+
+    context = {
+        'category': category,
+        'property': property,
+        'profile': profile,
+    }
+    return render(request, 'seller_detail.html', context)

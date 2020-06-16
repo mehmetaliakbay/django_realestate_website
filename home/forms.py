@@ -8,9 +8,15 @@ class SearchForm(forms.Form):
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=30, label="User Name :")
+    first_name = forms.CharField(max_length=100, label="First Name :")
+    last_name = forms.CharField(max_length=100, label="Last Name :")
     email = forms.EmailField(max_length=200, label="Email :")
-    first_name = forms.CharField(max_length=100, help_text="First Name", label="First Name :")
-    last_name = forms.CharField(max_length=100, help_text="Last Name", label="First Name :")
+    phone = forms.CharField(max_length=200, label="Phone :")
+    facebook = forms.CharField(max_length=100, label="Facebook :")
+    skype = forms.CharField(max_length=100, label="Skype :")
+    contact_detail = forms.CharField(max_length=100, label="Contact Detail :")
+    biography = forms.CharField(widget=forms.Textarea)
+
 
     class Meta:
         model = User

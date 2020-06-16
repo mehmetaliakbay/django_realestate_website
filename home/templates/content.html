@@ -23,7 +23,7 @@
                                 <div class="flat-item">
                                     <div class="flat-item-image">
                                         <span class="for-sale">For Sale</span>
-                                        <a href="properties-details.html"><img src="{{ rs.image.url }}" alt=""></a>
+                                        <a href="properties-details.html"><img src="{{ rs.image.url }}" alt="" style="width:368px;height:235px;"></a>
                                         <div class="flat-link">
                                             <a href="/property/{{rs.id}}/{{rs.slug}}">More Details</a>
                                         </div>
@@ -47,7 +47,7 @@
                                             <h5><a href="properties-details.html">{{ rs.title }}</a></h5>
                                             <span class="price">$52,350</span>
                                         </div>
-                                        <p><img src="{% static 'images/icons/location.png' %}" alt="">{{ rs.adress }}</p>
+                                        <p><img src="{% static 'images/icons/location.png' %}" alt="">{{ rs.address }}</p>
                                     </div>
                                 </div>
                             </div>

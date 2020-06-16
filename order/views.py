@@ -1,9 +1,8 @@
-from django.utils.crypto import get_random_string
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib import messages
-
+from django.utils.crypto import get_random_string
 from home.models import UserProfile
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProperty
 from property.models import Category, Property

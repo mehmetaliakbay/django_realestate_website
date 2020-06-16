@@ -1,0 +1,89 @@
+{% extends "homebase.html" %}
+{% load static %}
+{% block title %}İletişim Bilgilerini Görüntüle{% endblock %}
+{% block keywords %} {{setting.description}} {% endblock %}
+{% block description %} {{setting.keywords}} {% endblock %}
+{% block head %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">{% endblock %}
+
+
+{% block content %}
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bread-bg-1 bg-opacity-black-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumbs">
+                    <h2 class="breadcrumbs-title">İletişim Bilgilerini Görüntüle</h2>
+                    <ul class="breadcrumbs-list">
+                        <li><a href="/">Anasayfa</a></li>
+                        <li>İletişim Bilgilerini Görüntüle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper">
+
+            <!-- AGENTS DETAILS ABOUT START -->
+            <div class="agents-details-about pt-115">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="agent-details-desc-info">
+                                <div class="agent-details-name">
+                                    <h3>{{ profile.user_name }}</h3>
+                                    <p>Real Estate Agent</p>
+                                </div>
+                                <div class="agent-details-brief">
+                                    <p><span data-placement="top" data-toggle="tooltip" data-original-title="Graphics Designer of HasTech" class="tooltip-content">Momen Bhyuan </span> is a Specialist Real Estate Borker with <span class="text-theme"><b>8 years of Experience</b></span>  of sale Homes. He achive success with his honesty, determination, hardwork and commetment.</p>
+                                </div>
+                                <div class="agent-details-biography">
+                                    <h4>Biography</h4>
+                                    <p>{{ profile.biography }} </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-4">
+                                    <div class="agent-details-image">
+                                        <img src="{{ profile.image.url }}" style="width:260px;height:460px;" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-8">
+                                    <div class="agent-details-contact">
+                                        <h5>Contact Details</h5>
+                                        <p>{{ profile.contact_detail }}</p>
+                                        <h6>Phone</h6>
+                                        <p><img src="{% static 'images/icons/phone-2.png' %}" alt=""> {{ profile.phone }} </p>
+                                        <h6>Email</h6>
+                                        <p><img src="{% static 'images/icons/mail-close.png' %}" alt="">    {{profile.email}}</p>
+                                        <h6>Skype</h6>
+                                        <p><img src="{% static 'images/icons/15.png' %}" alt=""> skype id : {{ profile.skype }}</p>
+                                        <!-- social-media -->
+                                        <ul class="social-media">
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AGENTS DETAILS ABOUT END -->
+            <br>
+            <br>
+            <br>
+        </section>
+
+
+{% endblock %}
+

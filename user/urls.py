@@ -9,4 +9,8 @@ urlpatterns = [
     path('password/', views.change_password, name='change_password'),
     path('comments/', views.comments, name='comments'),
     path('deletecomment/<int:id>', views.deletecomment, name='deletecomment'),
+    path('addproperty/', views.addproperty, name='addproperty'),
+    path('properties/', views.properties, name='properties'),
+    path('propertyedit/<int:id>', views.propertyedit, name='propertyedit'),
+    path('propertydelete/<int:id>', views.propertydelete, name='propertydelete'),
 ]

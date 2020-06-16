@@ -1,11 +1,13 @@
-from django.db import models
-from django.utils.safestring import mark_safe
+from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.fields import RichTextUploadingField
-from mptt.models import MPTTModel
-from mptt.fields import TreeForeignKey
 from django.contrib.auth.models import User
-from django.forms import ModelForm, TextInput, Textarea
+from django.db import models
+from django.forms import ModelForm, TextInput, FileInput
 from django.urls import reverse
+from django.utils.safestring import mark_safe
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
+
 
 class Category(MPTTModel):
     STATUS = (
@@ -51,20 +53,20 @@ class Property(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
-    # relation with Category table
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    title = models.CharField(max_length=150)
-    keywords = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
+
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=150,blank=True)
+    keywords = models.CharField(max_length=255,blank=True)
+    description = models.CharField(max_length=255,blank=True)
     image = models.ImageField(blank=True, upload_to='images/', max_length=255)
     price = models.FloatField(blank=True)
-    amount = models.IntegerField(blank=True)
-    floor = models.IntegerField()
-    room = models.IntegerField()
-    rate = models.IntegerField()
-    address = models.TextField()
+    floor = models.IntegerField(blank=True)
+    room = models.IntegerField(blank=True)
+    rate = models.IntegerField(blank=True)
+    address = models.TextField(blank=True)
     detail = RichTextUploadingField(blank=True)
-    status = models.CharField(max_length=10, choices=STATUS)
+    status = models.CharField(max_length=10, choices=STATUS, blank=True)
     slug = models.SlugField(null=False, unique=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
@@ -117,3 +119,23 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['subject','comment','rate']
+
+
+class PropertyForm(ModelForm):
+    class Meta:
+        model = Property
+        fields = ['title', 'keywords','price','room','rate','floor','slug', 'description', 'address', 'image', 'detail']
+        widgets = {
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug'}),
+            'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
+            'price': TextInput(attrs={'class': 'input', 'placeholder': 'price'}),
+            'room': TextInput(attrs={'class': 'input', 'placeholder': 'room'}),
+            'rate': TextInput(attrs={'class': 'input', 'placeholder': 'rate'}),
+            'floor': TextInput(attrs={'class': 'input', 'placeholder': 'floor'}),
+            'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
+            'address': TextInput(attrs={'class': 'input', 'placeholder': 'address'}),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
+            'detail': CKEditorWidget(),
+
+        }
