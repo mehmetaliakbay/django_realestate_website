@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 from home.models import UserProfile
-from property.models import Category, Comment, Property, PropertyForm
+from property.models import Category, Comment, Property, PropertyForm, Images, ImagesForm
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -91,6 +91,7 @@ def addproperty(request):
             current_user = request.user
             data = Property()   # model ile baglantl kur
             data.user_id = current_user.id
+            data.category = form.cleaned_data['category']
             data.title = form.cleaned_data['title']
             data.keywords = form.cleaned_data['keywords']
             data.price = form.cleaned_data['price']
@@ -105,7 +106,7 @@ def addproperty(request):
             data.status = 'False'
             data.save() # verirabanlna kagdet
             messages.success(request, 'Your Content Insterted Successfuly')
-            return HttpResponseRedirect('/user/properties')
+            return HttpResponseRedirect('/user/addimage/%s'%data.id)
         else:
             messages.success(request, 'Property Form Error :' + str(form.errors))
             return HttpResponseRedirect('/user/addproperty')
@@ -159,3 +160,30 @@ def propertydelete(request, id):
     Property.objects.filter(id=id, user_id=current_user.id).delete()
     messages.success(request, 'Property deleted...')
     return HttpResponseRedirect('/user/properties')
+
+
+@login_required(login_url='/login')     # Check login
+def addimage(request,id):
+    if request.method == 'POST':
+        form = ImagesForm(request.POST, request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            data = Images()   # model ile baglantl kur
+            data.user_id = current_user.id
+            data.title = form.cleaned_data['title']
+            data.property = Property.objects.get(pk=id)
+            data.image = form.cleaned_data['image']
+            data.save() # verirabanlna kagdet
+            messages.success(request, 'Your Content Insterted Successfuly')
+            return HttpResponseRedirect('/user/addimage/%s'%id)
+        else:
+            messages.success(request, 'Property Form Error :' + str(form.errors))
+            return HttpResponseRedirect('/user/addimage/%s'%id)
+    else:
+        category = Category.objects.all()
+        form = ImagesForm()
+        context = {
+            'category': category,
+            'form': form,
+        }
+        return render(request, 'user_addimage.html', context)

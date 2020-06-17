@@ -124,7 +124,7 @@ class CommentForm(ModelForm):
 class PropertyForm(ModelForm):
     class Meta:
         model = Property
-        fields = ['title', 'keywords','price','room','rate','floor','slug', 'description', 'address', 'image', 'detail']
+        fields = ['category','title', 'keywords','price','room','rate','floor','slug', 'description', 'address', 'image', 'detail']
         widgets = {
             'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
             'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug'}),
@@ -137,5 +137,17 @@ class PropertyForm(ModelForm):
             'address': TextInput(attrs={'class': 'input', 'placeholder': 'address'}),
             'image': FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
             'detail': CKEditorWidget(),
+
+        }
+
+
+class ImagesForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title','image']
+        widgets = {
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            # 'property':ModelChoiceField(queryset=Property.objects.all()),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
 
         }

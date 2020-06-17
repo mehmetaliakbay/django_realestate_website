@@ -1,4 +1,26 @@
 {% load  static  %}
+<style>
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+
+</script>
 
 <!-- HEADER AREA START -->
 <header class="header-area header-wrapper">
@@ -63,18 +85,35 @@
 
 
                         <nav id="primary-menu">
-                            <ul class="main-menu text-center">
+                            <ul class="main-menu text-center dropdown">
                                 <li><a href="/">Anasayfa</a></li>
-                                {% load mptt_tags %}
-                                <li><a href="#">Kategoriler</a>
-                                    <ul class="drop-menu menu-right">
-                                        {% recursetree category %}
-                                        <li class="dropdown drop">
-                                            <a href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>
+                                <!--    {% load mptt_tags %}-->
+                                <!--    <li><a href="#">Kategoriler</a>-->
+                                <!--        <ul class="drop-menu menu-right">-->
+                                <!--            {% recursetree category %}-->
+                                <!--            <li class="dropdown drop">-->
+                                <!--                <a href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>-->
 
+                                <!--                {% if not node.is_leaf_node %}-->
+                                <!--                <ul>-->
+                                <!--                    {{ children }}-->
+                                <!--                </ul>-->
+                                <!--                {% endif %}-->
+                                <!--            </li>-->
+                                <!--            {% endrecursetree %}-->
+                                <!--        </ul>-->
+                                <!--    </li>-->
+
+                                {% load mptt_tags %}
+                                <li><a class="dropdown-toggle"
+                                       data-toggle="dropdown">Kategoriler</a>
+                                    <ul class="dropdown-menu drop-menu menu-right">
+                                        {% recursetree category %}
+                                        <li class="dropdown-submenu">
+                                            <a class="test" href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>
                                             {% if not node.is_leaf_node %}
-                                            <ul>
-                                                {{ children }}
+                                            <ul class="dropdown-menu">
+                                               <li> <a href="/category/{{node.id}}/{{ node.slug }}">{{ children }}</a></li>
                                             </ul>
                                             {% endif %}
                                         </li>
