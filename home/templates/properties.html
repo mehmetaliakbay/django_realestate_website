@@ -1,5 +1,5 @@
 {% extends "homebase.html" %}
-
+{% load static %}
 {% block title %} {{categorydata.title}}  {% endblock %}
 {% block keywords %} {{setting.description}} {% endblock %}
 {% block description %} {{setting.keywords}} {% endblock %}
@@ -41,22 +41,22 @@
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <div class="flat-item">
                                     <div class="flat-item-image">
-                                        <span class="for-sale">For Sale</span>
+                                        <span class="for-sale">Satılık</span>
                                         <a href="/property/{{ rs.id }}/{{rs.slug}}"><img src="{{ rs.image.url }}" alt="" style="width:368px;height:235px;"></a>
                                         <div class="flat-link">
-                                            <a href="/property/{{ rs.id }}/{{rs.slug}}">More Details</a>
+                                            <a href="/property/{{ rs.id }}/{{rs.slug}}">Ayrıntılı Bak</a>
                                         </div>
                                         <ul class="flat-desc">
                                             <li>
-                                                <img src="images/icons/4.png" alt="">
+                                                <img src="{% static 'images/icons/4.png' %}" alt="">
                                                 <span>450 sqft</span>
                                             </li>
                                             <li>
-                                                <img src="images/icons/5.png" alt="">
+                                                <img src="{% static 'images/icons/5.png' %}" alt="">
                                                 <span>5</span>
                                             </li>
                                             <li>
-                                                <img src="images/icons/6.png" alt="">
+                                                <img src="{% static 'images/icons/6.png' %}" alt="">
                                                 <span>3</span>
                                             </li>
                                         </ul>
@@ -66,8 +66,8 @@
                                             <h5><a href="/property/{{ rs.id }}/{{rs.slug}}">{{ rs.title }}</a></h5>
                                             <span class="price">${{ rs.price }}</span>
                                         </div>
-                                        <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
-                                        {% comment %} {{ rs.adress }} {% endcomment %}
+                                        <p><img src="images/icons/location.png" alt="">{{ rs.address }}</p>
+
                                     </div>
                                 </div>
                             </div>

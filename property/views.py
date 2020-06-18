@@ -8,7 +8,8 @@ from property.models import Comment, CommentForm
 
 def index(request):
     response = "You're looking at the Propery Page."
-    context = {'text': response}
+    setting = Setting.objects.get(pk=1)
+    context = {'setting':setting,'text': response}
     return render(request, 'index.html', context)
 
 

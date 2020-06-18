@@ -2,16 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c72512c3-3a8e-417f-9ede-d94c97c395bb" name="Default Changelist" comment="``">
-      <change afterPath="$PROJECT_DIR$/order/migrations/0014_auto_20200618_1034.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property/migrations/0018_auto_20200618_1034.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0008_auto_20200618_1254.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0009_auto_20200618_1256.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_realestate_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_realestate_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_realestate_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_realestate_project/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/properties.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0002_order_orderproperty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0003_auto_20200616_0858.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0004_auto_20200616_1232.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0005_auto_20200616_1242.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0006_auto_20200616_1247.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0007_auto_20200616_1249.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0008_auto_20200616_1252.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0009_auto_20200616_1255.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0010_auto_20200616_1323.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0011_auto_20200616_1323.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0012_auto_20200616_2151.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0013_auto_20200617_1253.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/0014_auto_20200618_1034.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/order_completed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/order_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/shopcart_properties.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +69,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Django/project" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -82,10 +108,10 @@
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="445" y="0" key="CommitChangelistDialog2/0.0.1600.900@0.0.1600.900" timestamp="1592384890543" />
-    <state x="580" y="205" key="FileChooserDialogImpl" timestamp="1592327481901">
+    <state x="580" y="205" key="FileChooserDialogImpl" timestamp="1592471893691">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="580" y="205" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1592327481901" />
+    <state x="580" y="205" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1592471893691" />
     <state x="395" y="31" key="SettingsEditor" timestamp="1592464275144">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
@@ -102,9 +128,9 @@
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="591" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.900@0.0.1600.900" timestamp="1592292348728" />
-    <state x="467" y="168" width="666" height="564" key="find.popup" timestamp="1592386867154">
+    <state x="467" y="168" width="758" height="714" key="find.popup" timestamp="1592473991019">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="467" y="168" width="666" height="564" key="find.popup/0.0.1600.900@0.0.1600.900" timestamp="1592386867154" />
+    <state x="467" y="168" width="758" height="714" key="find.popup/0.0.1600.900@0.0.1600.900" timestamp="1592473991019" />
   </component>
 </project>

@@ -5,7 +5,6 @@ from django.shortcuts import render
 
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
-from order.models import ShopCart
 from property.models import Category, Images, Property, Comment
 
 
@@ -17,7 +16,6 @@ def index(request):
     dayproperties= Property.objects.all()[:4]
     lastproperties = Property.objects.all().order_by('-id')[:4]
     randomproperties = Property.objects.all().order_by('?')[:9]
-    request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
     context = {'setting': setting,
                 'category': category,
                 'page':'home',
@@ -64,15 +62,19 @@ def iletisim(request):
 
 
 def category_properties(request,id,slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     properties = Property.objects.filter(category_id=id)
-    context = {'properties': properties,
+    context = {
+                'setting': setting,
+                'properties': properties,
                 'category': category,
                 'categorydata': categorydata}
     return render(request,'properties.html',context)
 
 def property_detail(request,id,slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     property = Property.objects.get(pk=id)
     images = Images.objects.filter(property_id=id)
@@ -80,6 +82,7 @@ def property_detail(request,id,slug):
     lastproperties = Property.objects.exclude(pk = id).order_by('-id')[:3]
 
     context = { 'property':property,
+                'setting':setting,
                 'category': category,
                 'images':images,
                 'comments': comments,
@@ -118,8 +121,9 @@ def login_view(request):
             messages.warning(request, "Login Hatasi ! Kullanici Adi veya sifre yanlis")
             return HttpResponseRedirect ('/login')
 
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    context = { 'category': category,}
+    context = { 'setting':setting,'category': category,}
     return render(request,'login.html',context)
 
 
@@ -147,17 +151,21 @@ def signup_view(request):
 
     form = SignUpForm()
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     context = { 'category': category,
                 'form': form,
+                'setting':setting
                 }
     return render(request,'signup.html',context)
 
 def faq(request):
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     faq = FAQ.objects.all().order_by('ordernumber')
     context = {
         'category': category,
         'faq': faq,
+        'setting': setting
     }
 
     return render(request, 'faq.html', context)
