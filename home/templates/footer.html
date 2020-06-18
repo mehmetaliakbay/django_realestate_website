@@ -8,7 +8,7 @@
                         <!-- footer-address -->
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-widget">
-                                <h6 class="footer-titel">GET IN TOUCH</h6>
+                                <h6 class="footer-titel">İletişime Geç</h6>
                                 <ul class="footer-address">
 
                                     <li>
@@ -16,8 +16,7 @@
                                             <img src="{% static 'images/icons/location-2.png'%} " alt="">
                                         </div>
                                         <div class="address-info">
-                                            <span>8901 Marmora Raod,</span>
-                                            <span>Glasgow, D04  89GR</span>
+                                            <span>{{ setting.address }}</span>
                                         </div>
                                     </li>
                                     <li>
@@ -25,8 +24,8 @@
                                             <img src="{% static 'images/icons/phone-3.png'%} " alt="">
                                         </div>
                                         <div class="address-info">
-                                            <span>Telephone : (801) 4256  9856</span>
-                                            <span>Telephone : (801) 4256  9658</span>
+                                            <span>Telephone : {{ setting.phone }}</span>
+                                            <span>Fax : {{ setting.fax }}</span>
                                         </div>
                                     </li>
                                     <li>
@@ -34,8 +33,8 @@
                                             <img src="{% static 'images/icons/world.png'%} " alt="">
                                         </div>
                                         <div class="address-info">
-                                            <span>Email : info@sheltek.com</span>
-                                            <span>Web :<a href="#" target="_blank"> www.sheltek.com</a></span>
+                                            <span>Facebook : {{ setting.facebook }}</span>
+                                            <span>Twitter :<a href="#" target="_blank"> {{ setting.twitter }}</a></span>
                                         </div>
                                     </li>
                                 </ul>
@@ -99,7 +98,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="copyright text-center">
-                                <p>Copyright &copy; 2018 <a href="https://freethemescloud.com/"><b>Free themes Cloud</b></a>. All rights reserved.</p>
+                                <p>Copyright &copy; 2020 <a href="https://github.com/mhmtaliakbay"><b>Mehmet Ali Akbay</b></a>. All rights reserved.</p>
                             </div>
                         </div>
                     </div>

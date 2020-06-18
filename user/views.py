@@ -98,6 +98,8 @@ def addproperty(request):
             data.floor = form.cleaned_data['floor']
             data.room = form.cleaned_data['room']
             data.rate = form.cleaned_data['rate']
+            data.baby_room = form.cleaned_data['square meters']
+            data.square_metre = form.cleaned_data['square_metre']
             data.description = form.cleaned_data['description']
             data.image = form.cleaned_data['image']
             data.address = form.cleaned_data['address']

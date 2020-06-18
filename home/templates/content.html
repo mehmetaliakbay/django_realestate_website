@@ -22,23 +22,23 @@
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <div class="flat-item">
                                     <div class="flat-item-image">
-                                        <span class="for-sale">For Sale</span>
+                                        <span class="for-sale">Satılık</span>
                                         <a href="properties-details.html"><img src="{{ rs.image.url }}" alt="" style="width:368px;height:235px;"></a>
                                         <div class="flat-link">
-                                            <a href="/property/{{rs.id}}/{{rs.slug}}">More Details</a>
+                                            <a href="/property/{{rs.id}}/{{rs.slug}}">Ayrıntılı Bak</a>
                                         </div>
                                         <ul class="flat-desc">
                                             <li>
                                                 <img src="{% static 'images/icons/4.png' %}" alt="">
-                                                <span>450 sqft</span>
+                                                <span>{{rs.square_metre}} sqmt</span>
                                             </li>
                                             <li>
                                                 <img src="{% static 'images/icons/5.png' %}" alt="">
-                                                <span>5</span>
+                                                <span>{{ rs.room }}</span>
                                             </li>
                                             <li>
                                                 <img src="{% static 'images/icons/6.png' %}" alt="">
-                                                <span>3</span>
+                                                <span>{{ rs.baby_room }}</span>
                                             </li>
                                         </ul>
                                     </div>

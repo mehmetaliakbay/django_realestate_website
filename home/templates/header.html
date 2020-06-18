@@ -4,23 +4,48 @@
   position: relative;
 }
 
-.dropdown-submenu .dropdown-menu {
+.dropdown-submenu>.dropdown-menu {
   top: 0;
   left: 100%;
-  margin-top: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+
+<!--.dropdown-submenu>a:after {-->
+<!--  display: block;-->
+<!--  content: " ";-->
+<!--  float: right;-->
+<!--  width: 0;-->
+<!--  height: 0;-->
+<!--  border-color: transparent;-->
+<!--  border-style: solid;-->
+<!--  border-width: 5px 0 5px 5px;-->
+<!--  border-left-color: #cccccc;-->
+<!--  margin-top: 5px;-->
+<!--  margin-right: -10px;-->
+<!--}-->
+
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
-
-<script>
-$(document).ready(function(){
-  $('.dropdown-submenu a.test').on("click", function(e){
-    $(this).next('ul').toggle();
-    e.stopPropagation();
-    e.preventDefault();
-  });
-});
-
-</script>
 
 <!-- HEADER AREA START -->
 <header class="header-area header-wrapper">
@@ -41,8 +66,8 @@ $(document).ready(function(){
                                 <img src="{% static 'images/icons/phone.png'%} " alt="">
                             </div>
                             <div class="header-info">
-                                <h6>+88 (012) 564 979 56</h6>
-                                <p>We are open 9 am - 10pm</p>
+                                <h6>{{ setting.phone }}</h6>
+                                <p>Saat 9 ile - 22 arasi acigiz</p>
                             </div>
                         </div>
                         <div class="company-info-item">
@@ -50,8 +75,8 @@ $(document).ready(function(){
                                 <img src="{% static 'images/icons/mail-open.png'%} " alt="">
                             </div>
                             <div class="header-info">
-                                <h6><a href="mailto:hnasir770@gmail.com">info@sheltek.com</a></h6>
-                                <p>You can mail us</p>
+                                <h6><a href="mailto:mhmtaliakbay@gmail.com">{{ setting.email }}</a></h6>
+                                <p>Bize Mail Gonderebilirsiniz</p>
                             </div>
                         </div>
                     </div>
@@ -85,41 +110,30 @@ $(document).ready(function(){
 
 
                         <nav id="primary-menu">
-                            <ul class="main-menu text-center dropdown">
+                            <ul class="main-menu text-center dropdown ">
                                 <li><a href="/">Anasayfa</a></li>
-                                <!--    {% load mptt_tags %}-->
-                                <!--    <li><a href="#">Kategoriler</a>-->
-                                <!--        <ul class="drop-menu menu-right">-->
-                                <!--            {% recursetree category %}-->
-                                <!--            <li class="dropdown drop">-->
-                                <!--                <a href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>-->
-
-                                <!--                {% if not node.is_leaf_node %}-->
-                                <!--                <ul>-->
-                                <!--                    {{ children }}-->
-                                <!--                </ul>-->
-                                <!--                {% endif %}-->
-                                <!--            </li>-->
-                                <!--            {% endrecursetree %}-->
-                                <!--        </ul>-->
-                                <!--    </li>-->
 
                                 {% load mptt_tags %}
-                                <li><a class="dropdown-toggle"
-                                       data-toggle="dropdown">Kategoriler</a>
-                                    <ul class="dropdown-menu drop-menu menu-right">
+                                <li class="dropdown-submenu ">
+                                    <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown"
+                                       href="#">
+                                        Kategoriler
+                                        <i class="icon icon-caret-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
                                         {% recursetree category %}
-                                        <li class="dropdown-submenu">
-                                            <a class="test" href="/category/{{node.id}}/{{ node.slug }}"> {{ node.title }}</a>
+                                        <li  class="dropdown-submenu">
+                                            <a href="/category/{{node.id}}/{{ node.slug }}">{{ node.title }}</a>
                                             {% if not node.is_leaf_node %}
                                             <ul class="dropdown-menu">
-                                               <li> <a href="/category/{{node.id}}/{{ node.slug }}">{{ children }}</a></li>
+                                               {{ children }}
                                             </ul>
-                                            {% endif %}
+                                              {% endif %}
                                         </li>
                                         {% endrecursetree %}
                                     </ul>
                                 </li>
+
 
                                 <li><a href="/hakkimizda">Hakkımızda</a></li>
                                 <li><a href="/referanslar">Referanslar</a></li>

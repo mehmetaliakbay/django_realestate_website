@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c72512c3-3a8e-417f-9ede-d94c97c395bb" name="Default Changelist" comment="``">
-      <change afterPath="$PROJECT_DIR$/order/migrations/0013_auto_20200617_1253.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-01_3FtDFyL.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-01_poG0mLd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-01_wDoHaX3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-01_yCIUoWz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-01_z2AzGQF.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-02_Gg5Fhu6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-02_kWLPRQB.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-06_57lulEB.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-06_GbyLvG3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mb-bg-fb-08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_addimage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/migrations/0014_auto_20200618_1034.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property/migrations/0018_auto_20200618_1034.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/properties.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -97,10 +86,10 @@
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="580" y="205" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1592327481901" />
-    <state x="483" y="13" key="SettingsEditor" timestamp="1584952684886">
+    <state x="395" y="31" key="SettingsEditor" timestamp="1592464275144">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="483" y="13" key="SettingsEditor/0.0.1600.900@0.0.1600.900" timestamp="1584952684886" />
+    <state x="395" y="31" key="SettingsEditor/0.0.1600.900@0.0.1600.900" timestamp="1592464275144" />
     <state x="646" y="356" key="VCS.ChangelistChooser" timestamp="1592335309383">
       <screen x="0" y="0" width="1600" height="900" />
     </state>

@@ -61,8 +61,10 @@ class Property(models.Model):
     description = models.CharField(max_length=255,blank=True)
     image = models.ImageField(blank=True, upload_to='images/', max_length=255)
     price = models.FloatField(blank=True)
+    square_metre = models.FloatField(blank=True)
     floor = models.IntegerField(blank=True)
     room = models.IntegerField(blank=True)
+    baby_room = models.IntegerField(blank=True)
     rate = models.IntegerField(blank=True)
     address = models.TextField(blank=True)
     detail = RichTextUploadingField(blank=True)
@@ -124,7 +126,8 @@ class CommentForm(ModelForm):
 class PropertyForm(ModelForm):
     class Meta:
         model = Property
-        fields = ['category','title', 'keywords','price','room','rate','floor','slug', 'description', 'address', 'image', 'detail']
+        fields = ['category', 'title', 'keywords', 'price', 'room', 'square_metre', 'baby_room', 'floor', 'slug',
+                  'description', 'address', 'image', 'detail']
         widgets = {
             'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
             'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug'}),
@@ -133,6 +136,8 @@ class PropertyForm(ModelForm):
             'room': TextInput(attrs={'class': 'input', 'placeholder': 'room'}),
             'rate': TextInput(attrs={'class': 'input', 'placeholder': 'rate'}),
             'floor': TextInput(attrs={'class': 'input', 'placeholder': 'floor'}),
+            'square_metre': TextInput(attrs={'class': 'input', 'placeholder': 'floor'}),
+            'baby_room': TextInput(attrs={'class': 'input', 'placeholder': 'floor'}),
             'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
             'address': TextInput(attrs={'class': 'input', 'placeholder': 'address'}),
             'image': FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
