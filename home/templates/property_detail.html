@@ -1,5 +1,5 @@
 {% extends "homebase.html" %}
-
+{% load static %}
 {% block title %} {{property.title}} {% endblock %}
 {% block keywords %} {{property.description}} {% endblock %}
 {% block description %} {{property.keywords}} {% endblock %}
@@ -58,36 +58,26 @@
                                     <h5>Durumu</h5>
                                     <div class="pro-details-condition-inner bg-gray">
                                         <ul class="condition-list">
-                                            <li><img src="images/icons/5.png" alt="">Area 450 sqft</li>
-                                            <li><img src="images/icons/6.png" alt="">Bedroom 5</li>
-                                            <li><img src="images/icons/7.png" alt="">Bathroom 3</li>
-                                            <li><img src="images/icons/13.png" alt="">Garage 2</li>
-                                            <li><img src="images/icons/14.png" alt="">Kitchen 2</li>
-                                            <li>${{ property.price }}</li>
+                                            <li><img src="{% static 'images/icons/4.png' %}" alt="">{{
+                                                property.square_metre }} metre kare
+                                            </li>
+                                            <li><img src="{% static 'images/icons/6.png' %}" alt="">{{
+                                                property.baby_room }} bebek odasi
+                                            </li>
+                                            <li><img src="{% static 'images/icons/5.png' %}" alt="">{{ property.room }}
+                                                oda
+                                            </li>
+                                            <li><img src="{% static 'images/icons/13.png' %}" alt="">{{ property.floor
+                                                }}. kat
+                                            </li>
+                                            <li>$ {{ property.price }}</li>
                                         </ul>
-                                        <p><img src="images/icons/location.png" alt="">{{ property.address }}</p>
+                                        <p><img src="{% static 'images/icons/location.png' %}" alt="">{{
+                                            property.address }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="pro-details-amenities">
-                                    <h5>Kolaylıklar</h5>
-                                    <div class="pro-details-amenities-inner bg-gray">
-                                        <ul class="amenities-list">
-                                            <li>Air Conditioning</li>
-                                            <li>Bedding</li>
-                                            <li>Balcony</li>
-                                            <li>Cable TV</li>
-                                            <li>Internet</li>
-                                            <li>Parking</li>
-                                            <li>Lift</li>
-                                            <li>Pool</li>
-                                            <li>Dishwasher</li>
-                                            <li>Toaster</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                     
                         </div>
                     </div>
                     <!-- pro-details-description -->
@@ -120,43 +110,7 @@
                     <!-- agent-review -->
                     <div class="pro-details-agent-review">
                         <div class="row">
-                            <!-- single-agent -->
-                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                <div class="pro-details-agent">
-                                    <h5>Contact Agent</h5>
-                                    <div class="single-agent">
-                                        <div class="agent-image">
-                                            <img src="images/agents/2.jpg" alt="">
-                                        </div>
-                                        <div class="agent-info">
-                                            <div class="agent-name">
-                                                <h5><a href="#">Eva Sharlin</a></h5>
-                                                <p>Real Estate Broker</p>
-                                            </div>
-                                        </div>
-                                        <div class="agent-info-hover">
-                                            <div class="agent-name">
-                                                <h5><a href="#">Eva Sharlin</a></h5>
-                                                <p>Real Estate Broker</p>
-                                            </div>
-                                            <ul class="agent-address">
-                                                <li><img src="images/icons/phone-2.png" alt="">+1245 785 659</li>
-                                                <li><img src="images/icons/mail-close.png" alt="">eva@gmail.com</li>
-                                            </ul>
-                                            <ul class="social-media">
-                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- leave-massage -->
                             <div class="col-md-7  col-sm-7 col-xs-12">
                                 <div class="leave-review">
@@ -200,11 +154,13 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-3 col-xs-12">
                                 <div class="find-home-item ">
+                                    <h4>İlan Başlığı</h4>
                                     {{ property.title }}
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-12">
                                 <div class="find-home-item">
+                                    <h4>Fiyat</h4>
                                     ${{ property.price }}
 
                                 </div>
@@ -212,11 +168,13 @@
 
                             <div class="col-md-12 col-sm-3 col-xs-12">
                                 <div class="find-home-item">
+                                    <h4>Açıklama</h4>
                                     {{ property.description }}
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-12">
                                 <div class="find-home-item">
+                                    <h4>Adres</h4>
                                     {{ property.address }}
                                 </div>
                             </div>
@@ -239,7 +197,7 @@
 
                     <!-- widget-featured-property -->
                     <aside class="widget widget-featured-property">
-                        <h5>Featured Property</h5>
+                        <h5>İlginizi Çekebilecek Evler</h5>
                         <div class="row">
 
                             {% for rs in lastproperties %}
